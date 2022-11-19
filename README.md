@@ -21,3 +21,6 @@ To begin our analysis, we need to understand the datasets attributes and what th
 * **Salary**: Salary level of the employee; ranges from low, medium and high.
 * **left**: Whether the employee has left the company or not.
 
+## A Dive Into Data Visualization
+
+Our data serves little use in it's current form, so let's try a creating a few different graphs to help grasp the different relationships in our dataset.
