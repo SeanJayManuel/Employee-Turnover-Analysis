@@ -40,3 +40,11 @@ plot.show()
 print(data.left.value_counts())
 
 
+# This chart measures the relationship between time spent at the company
+# and number of employees.
+time_spent=data.groupby('time_spend_company').count()
+plt.bar(time_spent.index.values, time_spent['satisfaction_level'])
+plt.xlabel('Number of Years Spend in Company')
+plt.ylabel('Number of Employees')
+plt.show()
+
