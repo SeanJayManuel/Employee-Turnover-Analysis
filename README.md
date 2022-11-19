@@ -25,5 +25,7 @@ To begin our analysis, we need to understand the datasets attributes and what th
 
 Our data serves little use in it's current form, so let's try a creating a few different graphs to help grasp the different relationships in our dataset.
 
-Secondly, we can create a graph for the relationship between employee tenure and the how many employee's there are. See *Figure. 2*
+Secondly, we can create a graph for the relationship between employee tenure and the how many employee's there are. See *Figure. 2* below.
+
+![](Graphs/Figure_2.png)
 
