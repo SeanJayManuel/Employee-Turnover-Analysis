@@ -13,6 +13,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn import metrics
+from sklearn import preprocessing
+from sklearn.cluster import KMeans
 
 
 
@@ -47,4 +49,11 @@ plot.bar(time_spent.index.values, time_spent['satisfaction_level'])
 plot.xlabel('Number of Years Spend in Company')
 plot.ylabel('Number of Employees')
 plot.show()
+
+
+average_monthly_hours=data.groupby('average_monthly_hours').count()
+plt.bar(average_monthly_hours.index.values, average_monthly_hours['satisfaction_level'])
+plt.xlabel('Average Monthly Hours Worked')
+plt.ylabel('Number of Employees')
+plt.show()
 
