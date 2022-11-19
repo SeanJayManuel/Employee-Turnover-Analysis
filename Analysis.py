@@ -17,7 +17,7 @@ from sklearn import metrics
 
 
 # Let's import the dataset we will be using!
-data = pandas.read_csv('HR_Employee_Measurement.csv')
+data = pd.read_csv('HR_Employee_Measurement.csv')
 
 # This will give us a nice overview of the data.
 data.head()
@@ -43,8 +43,8 @@ print(data.left.value_counts())
 # This chart measures the relationship between time spent at the company
 # and number of employees.
 time_spent=data.groupby('time_spend_company').count()
-plt.bar(time_spent.index.values, time_spent['satisfaction_level'])
-plt.xlabel('Number of Years Spend in Company')
-plt.ylabel('Number of Employees')
-plt.show()
+plot.bar(time_spent.index.values, time_spent['satisfaction_level'])
+plot.xlabel('Number of Years Spend in Company')
+plot.ylabel('Number of Employees')
+plot.show()
 
