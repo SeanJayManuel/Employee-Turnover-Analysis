@@ -7,18 +7,27 @@ Welcome to my project regarding employee churn data.
 """
 
 import matplotlib.pyplot as plot
-import pandas
+import pandas as pd
 import seaborn as sb
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn import metrics
+
+
 
 # Let's import the dataset we will be using!
 data = pandas.read_csv('HR_Employee_Measurement.csv')
+
+# This will give us a nice overview of the data.
+data.head()
 
 # In order to further our understanding of the dataset
 # attributes and the datatypes we can use info()
 data.info()
 
 # We want to look into the data of the employees who left the 
-# company. Thus, we can  group them by 
+# company. Thus, we can  group them by  who left he company.
 ex_employees = data.groupby('left')
 ex_employees.mean()
 
