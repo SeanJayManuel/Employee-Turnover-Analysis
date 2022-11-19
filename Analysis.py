@@ -51,9 +51,10 @@ plot.ylabel('Number of Employees')
 plot.show()
 
 
+# We this displays the the realtionship between hours worked and the number of employees.
 average_monthly_hours=data.groupby('average_monthly_hours').count()
-plt.bar(average_monthly_hours.index.values, average_monthly_hours['satisfaction_level'])
-plt.xlabel('Average Monthly Hours Worked')
-plt.ylabel('Number of Employees')
-plt.show()
-
+plot.title("Hours Worker per Month vs. # of Employees ")
+plot.bar(average_monthly_hours.index.values, average_monthly_hours['satisfaction_level'])
+plot.xlabel('Average Monthly Hours Worked')
+plot.ylabel('Number of Employees')
+plot.show()
