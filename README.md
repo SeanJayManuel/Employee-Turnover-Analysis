@@ -1,7 +1,7 @@
 # Employee Churn Analysis
 
 ## About
-This project will analyze employee data and metrics in order to predict the companies employee retention.
+This project will analyze employee data and metrics in order to predict the companies employee retention. To further examine the trends we find, this analysis will conclude with the results we find after building a **random forest regression** model.
 
 We will use this README.md as a report in which we discuss some of the findings we discover by analyzing the data as well how we reached these findings.
 
