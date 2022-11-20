@@ -58,3 +58,15 @@ plot.bar(average_monthly_hours.index.values, average_monthly_hours['satisfaction
 plot.xlabel('Average Monthly Hours Worked')
 plot.ylabel('Number of Employees')
 plot.show()
+
+### This is the Machine Learning Portion
+
+x = data.iloc[:, 0:4].values
+y = data.iloc[:, 4].values
+
+
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
