@@ -59,6 +59,13 @@ plot.xlabel('Average Monthly Hours Worked')
 plot.ylabel('Number of Employees')
 plot.show()
 
+graph = sb.pairplot(data, hue='average_monthly_hours')
+graph.fig.suptitle("Scatterplot and histogram of pairs of variables color coded by risk level", 
+               fontsize = 14, # defining the size of the title
+               y=1.05); # y = definig title y position (height)
+plot.show()
+
+
 ### This is the Machine Learning Portion
 
 x = data.iloc[:, 0:4].values
