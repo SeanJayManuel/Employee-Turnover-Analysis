@@ -60,7 +60,7 @@ plot.ylabel('Number of Employees')
 plot.show()
 
 graph = sb.pairplot(data, hue='average_monthly_hours')
-graph.fig.suptitle("Scatterplot and histogram of pairs of variables color coded by risk level", 
+graph.fig.suptitle("Scatterplot and histogram of pairs of variables color coded by average monthly hours", 
                fontsize = 14, # defining the size of the title
                y=1.05); # y = definig title y position (height)
 plot.show()
