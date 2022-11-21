@@ -25,8 +25,16 @@ To begin our analysis, we need to understand the datasets attributes and what th
 
 Our data serves little use in it's current form, so let's try a creating a few different graphs to help grasp the different relationships in our dataset.
 
-Secondly, we can create a graph for the relationship between employee tenure and the how many employee's there are. See *Figure. 2* below.
+Secondly, we can create a graph for the relationship between employee tenure and how many employee's there are. See *Figure. 2* below.
 
 ![](Graphs/Figure_2.png)<br>
 Figure. 2
 
+
+
+Below we can see the average hours worked in comparison to the number of employees. See Figure. 3
+
+![](Graphs/Figure_3.png)<br>
+Figure. 3
+
+We can see an acceptional spike around the 150 hour mark per month. This gives us a better insight into the typical employee workload that our dataset would experience.
