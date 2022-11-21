@@ -30,37 +30,37 @@ data.info()
 
 # We want to look into the data of the employees who left the 
 # company. Thus, we can  group them by  who left he company.
-ex_employees = data.groupby('left')
+ex_employees = data.groupby('Left')
 ex_employees.mean()
 
-left_count=data.groupby('left').count()
-plot.bar(left_count.index.values, left_count['satisfaction_level'])
+Left=data.groupby('Left').count()
+plot.bar(Left.index.values, Left['Satisfaction'])
 plot.xlabel('# of Employees Who Left The Company')
 plot.ylabel('Total # Number of Employees')
 plot.show()
 
-print(data.left.value_counts())
+print(data.Left.value_counts())
 
 
 # This chart measures the relationship between time spent at the company
 # and number of employees.
-time_spent=data.groupby('time_spend_company').count()
-plot.bar(time_spent.index.values, time_spent['satisfaction_level'])
+Tenure=data.groupby('Tenure').count()
+plot.bar(Tenure.index.values, Tenure['Satisfaction'])
 plot.xlabel('Number of Years Spend in Company')
 plot.ylabel('Number of Employees')
 plot.show()
 
 
 # We this displays the the realtionship between hours worked and the number of employees.
-average_monthly_hours=data.groupby('average_monthly_hours').count()
+Monthly_Hours=data.groupby('Monthly_Hours').count()
 plot.title("Hours Worker per Month vs. # of Employees ")
-plot.bar(average_monthly_hours.index.values, average_monthly_hours['satisfaction_level'])
+plot.bar(Monthly_Hours.index.values, Monthly_Hours['Satisfaction'])
 plot.xlabel('Average Monthly Hours Worked')
 plot.ylabel('Number of Employees')
 plot.show()
 
-graph = sb.pairplot(data, hue='average_monthly_hours')
-graph.fig.suptitle("Scatterplot and histogram of pairs of variables color coded by average monthly hours", 
+graph = sb.pairplot(data, hue='Left')
+graph.fig.suptitle("Scatterplot and histogram of pairs of variables color coded by who left the company", 
                fontsize = 14, # defining the size of the title
                y=1.05); # y = definig title y position (height)
 plot.show()
