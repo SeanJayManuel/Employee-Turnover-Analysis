@@ -30,7 +30,9 @@ Secondly, we can create a graph for the relationship between employee tenure and
 ![](Graphs/Figure_2.png)<br>
 Figure. 2
 
+Figure. 2 dispalys the seniority of employees. We see that the majority of employees are relatively new, with the bulk of the workforce haveing spent 3 years at the company.
 
+***
 
 Below we can see the average hours worked in comparison to the number of employees. See Figure. 3
 
