@@ -33,7 +33,9 @@ data.info()
 ex_employees = data.groupby('Left')
 ex_employees.mean()
 
+
 Left=data.groupby('Left').count()
+plot.title("Employees Who Left vs. Total # of Employees ")
 plot.bar(Left.index.values, Left['Satisfaction'])
 plot.xlabel('# of Employees Who Left The Company')
 plot.ylabel('Total # Number of Employees')
@@ -45,22 +47,24 @@ print(data.Left.value_counts())
 # This chart measures the relationship between time spent at the company
 # and number of employees.
 Tenure=data.groupby('Tenure').count()
+plot.title("Years Spent in Company vs. # of Employees")
 plot.bar(Tenure.index.values, Tenure['Satisfaction'])
-plot.xlabel('Number of Years Spend in Company')
+plot.xlabel('Number of Years Spent in Company')
 plot.ylabel('Number of Employees')
 plot.show()
 
 
-# We this displays the the realtionship between hours worked and the number of employees.
+# This displays the the relationship between hours worked and the number of employees.
 Monthly_Hours=data.groupby('Monthly_Hours').count()
-plot.title("Hours Worker per Month vs. # of Employees ")
+plot.title("Hours Worked per Month vs. # of Employees ")
 plot.bar(Monthly_Hours.index.values, Monthly_Hours['Satisfaction'])
 plot.xlabel('Average Monthly Hours Worked')
 plot.ylabel('Number of Employees')
 plot.show()
 
+# This creates are histogram to cross examine the categories against eachother
 graph = sb.pairplot(data, hue='Left')
-graph.fig.suptitle("Scatterplot and histogram of pairs of variables color coded by who left the company", 
+graph.fig.suptitle("Scatterplot and Histogram of pairs of variables color coded by who left the company", 
                fontsize = 14, # defining the size of the title
                y=1.05); # y = definig title y position (height)
 plot.show()
