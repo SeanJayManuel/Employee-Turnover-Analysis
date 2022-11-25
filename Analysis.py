@@ -63,10 +63,9 @@ plot.show()
 
 left_emp =  data[['Satisfaction', 'Evaluation']][data.Left == 1]
 kmeans = KMeans(n_clusters = 3, random_state = 0).fit(left_emp)
-
-
 left_emp['label'] = kmeans.labels_
-# Draw scatter plot
+
+# Creates a scatter plot of three groups of employees
 plot.scatter(left_emp['Satisfaction'], left_emp['Evaluation'], c=left_emp['label'],cmap='Accent')
 plot.xlabel('Satisfaction Level')
 plot.ylabel('Last Evaluation')

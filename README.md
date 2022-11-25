@@ -40,3 +40,16 @@ Below we can see the average hours worked in comparison to the number of employe
 Figure. 3
 
 We can see an acceptional spike around the 150 hour mark per month. This gives us a better insight into the typical employee workload that our dataset would experience.
+
+
+## Prepping Our Random Forest Model
+
+Before we can create our random forest classifier we need to understand more about the data so we know the appropriate properties to assign. One of the ideal properties to decide on in a random forest algorithm is the number of trees needed to accurately classify the individual points.
+
+By creating a histogram and scatterplot, we can gain valuable information that will help us make an informed decision. See 
+Figure. 5
+
+![](Graphs/Figure_5.png)<br>
+Figure. 5
+
+When looking at our plotted graphs, the preferable situation would be a clear seperation between the the curves and data points. Looking above we can see that  
