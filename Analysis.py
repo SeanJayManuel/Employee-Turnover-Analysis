@@ -33,16 +33,15 @@ data.info()
 ex_employees = data.groupby('Left')
 ex_employees.mean()
 
-
+# This chart shows us who left the company
 Left=data.groupby('Left').count()
 plot.title("Employees Who Left vs. Total # of Employees ")
 plot.bar(Left.index.values, Left['Satisfaction'])
-plot.xlabel('# of Employees Who Left The Company')
+plot.xlabel('# of Employees Who Left Their Company')
 plot.ylabel('Total # Number of Employees')
 plot.show()
 
 print(data.Left.value_counts())
-
 
 # This chart measures the relationship between time spent at the company
 # and number of employees.
@@ -62,10 +61,24 @@ plot.xlabel('Average Monthly Hours Worked')
 plot.ylabel('Number of Employees')
 plot.show()
 
+left_emp =  data[['Satisfaction', 'Evaluation']][data.Left == 1]
+kmeans = KMeans(n_clusters = 3, random_state = 0).fit(left_emp)
+
+
+left_emp['label'] = kmeans.labels_
+# Draw scatter plot
+plot.scatter(left_emp['Satisfaction'], left_emp['Evaluation'], c=left_emp['label'],cmap='Accent')
+plot.xlabel('Satisfaction Level')
+plot.ylabel('Last Evaluation')
+plot.title('3 Clusters of Employees Who Left')
+plot.show()
+
+
+
 # This creates are histogram to cross examine the categories against eachother
 graph = sb.pairplot(data, hue='Left')
 graph.fig.suptitle("Scatterplot and Histogram of pairs of variables color coded by who left the company", 
-               fontsize = 14, # defining the size of the title
+               fontsize = 12, # defining the size of the title
                y=1.05); # y = definig title y position (height)
 plot.show()
 
@@ -81,3 +94,4 @@ X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
+
