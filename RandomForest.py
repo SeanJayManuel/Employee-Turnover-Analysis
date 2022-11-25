@@ -11,29 +11,26 @@ import numpy as np
 import seaborn as sb
 import matplotlib.pyplot as plot
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn import tree
+from sklearn.metrics import classification_report, confusion_matrix
 
 
 data = pd.read_csv('HR_Employee_Measurement.csv')
 
 print(data['Left'].unique())
 
-y = datat['Left']
+y = data['Left']
 x = data.drop(['Left'], axis=1)
 
-SEED = 65
 
+# Random Forest regresor
+SEED2 = 45
 x_train, x_test, y_train, y_test = train_test_split(x, y, 
                                                     test_size=0.25, 
-                                                    random_state=SEED)
+                                                    random_state=SEED2)
 
 
-randomfc = RandomForestClassifier(n_estimators=3, 
-                             max_depth=2,
-                             random_state=SEED)
-
-
-randomfc.fit(x_train, y_train)
-
-y_pred = randomfc.predict(x_test)
+randomfr = RandomForestRegressor(n_estimators=35, 
+                             max_depth=4,
+                             random_state=SEED2)
