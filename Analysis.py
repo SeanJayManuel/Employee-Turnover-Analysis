@@ -82,15 +82,3 @@ graph.fig.suptitle("Scatterplot and Histogram of pairs of variables color coded 
 plot.show()
 
 
-### This is the Machine Learning Portion
-
-x = data.iloc[:, 0:4].values
-y = data.iloc[:, 4].values
-
-
-X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
-
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
-
