@@ -61,6 +61,7 @@ plot.xlabel('Average Monthly Hours Worked')
 plot.ylabel('Number of Employees')
 plot.show()
 
+# Cluster graph 
 left_emp =  data[['Satisfaction', 'Evaluation']][data.Left == 1]
 kmeans = KMeans(n_clusters = 3, random_state = 0).fit(left_emp)
 left_emp['label'] = kmeans.labels_
@@ -73,6 +74,16 @@ plot.title('3 Clusters of Employees Who Left')
 plot.show()
 
 
+# Using Seaborn creates a sub plot
+features=['Project_Count','Tenure','Work_Accident','Left', 'Promotion','Departments','Salary']
+fig=plot.subplots(figsize=(10,15))
+plot.title('Comparing Attributes of Past and Current Employees')
+for i, j in enumerate(features):
+    plot.subplot(4, 2, i+1)
+    plot.subplots_adjust(hspace = 1.0)
+    sb.countplot(x=j,data = data, hue='Left')
+    plot.xticks(rotation=90)
+    plot.title("# Of Employees")
 
 # This creates are histogram to cross examine the categories against eachother
 graph = sb.pairplot(data, hue='Left')

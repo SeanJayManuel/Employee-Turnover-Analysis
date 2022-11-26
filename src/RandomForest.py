@@ -24,7 +24,7 @@ y = data['Left']
 x = data.drop(['Left'], axis=1)
 
 
-# Random Forest regresor
+# Random Forest Regresor
 SEED2 = 45
 x_train, x_test, y_train, y_test = train_test_split(x, y, 
                                                     test_size=0.25, 
