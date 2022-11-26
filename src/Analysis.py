@@ -75,10 +75,11 @@ plot.show()
 
 
 # Using Seaborn creates a sub plot
-features=['Project_Count','Tenure','Work_Accident','Left', 'Promotion','Departments','Salary']
+attributes=['Project_Count','Tenure','Work_Accident','Left', 'Promotion','Departments','Salary']
+
 fig=plot.subplots(figsize=(10,15))
 plot.title('Comparing Attributes of Past and Current Employees')
-for i, j in enumerate(features):
+for i, j in enumerate(attributes):
     plot.subplot(4, 2, i+1)
     plot.subplots_adjust(hspace = 1.0)
     sb.countplot(x=j,data = data, hue='Left')
