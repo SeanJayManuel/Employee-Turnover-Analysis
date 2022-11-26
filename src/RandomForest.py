@@ -31,6 +31,10 @@ x_train, x_test, y_train, y_test = train_test_split(x, y,
                                                     random_state=SEED)
 
 
-randomfr = RandomForestRegressor(n_estimators=35, 
-                             max_depth=4,
-                             random_state=SEED2)
+randomfr = RandomForestRegressor(n_estimators=35, # 35 trees
+                             max_depth=4, # levels
+                             random_state=SEED)
+
+
+randomfr.fit(x_train, y_train)
+y_pred = randomfr.predict(x_test)
