@@ -25,10 +25,10 @@ x = data.drop(['Left'], axis=1)
 
 
 # Random Forest Regresor
-SEED2 = 45
+SEED = 45
 x_train, x_test, y_train, y_test = train_test_split(x, y, 
                                                     test_size=0.25, 
-                                                    random_state=SEED2)
+                                                    random_state=SEED)
 
 
 randomfr = RandomForestRegressor(n_estimators=35, 
