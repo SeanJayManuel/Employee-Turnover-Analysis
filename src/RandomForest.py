@@ -39,13 +39,14 @@ x = data.drop(['Left'], axis=1)
 print(data)
 
 
+# Splits our data into training and testing sets
 x_train, x_test, y_train, y_test = train_test_split(x, y, 
                                                     test_size=0.25, 
                                                     random_state=SEED)
 
 
 randomfr = RandomForestRegressor(n_estimators=35, # 35 trees
-                             max_depth=4, # levels
+                             max_depth=4, #  4 levels
                              random_state=SEED)
 
 
@@ -57,10 +58,17 @@ y_pred = randomfr.predict(x_test)
 attributes = x.columns
 tree1 = randomfr.estimators_[0]
 
-plot.figure(figsize=(15,6))
+
+plot.figure(figsize=(20,6))
 tree.plot_tree(tree1,
                feature_names=attributes,
                fontsize=8, 
                filled=True, 
                rounded=True);
 plot.show()
+
+
+# Prints potential error metrics to see how accurate the regressor is.
+print('Mean Absolute Error:', mean_absolute_error(y_test, y_pred))
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))
+print('Root Mean Squared Error:', np.sqrt(mean_squared_error(y_test, y_pred)))
