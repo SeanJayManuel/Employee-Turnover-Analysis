@@ -22,7 +22,6 @@ from sklearn.metrics import classification_report, confusion_matrix, mean_absolu
 # Import and read our data set
 data = pd.read_csv('HR_Employee_Measurement.csv')
 
-print(data['Left'].unique())
 
 # Replace all string values with ints as to pass through training set and regressor
 data['Salary'] = data['Salary'].replace('low', 0).replace('medium', 1).replace('high', 2)
@@ -34,6 +33,7 @@ print(data)
 # Sets y to our desired value and drops siad value for x
 y = data['Left']
 x = data.drop(['Left'], axis=1)
+
 
 SEED1 = 45
 SEED2 = 45
@@ -67,7 +67,7 @@ def random_forest_classifier(x,y):
                     rounded=True)
         plot.show()
 
-    # M
+    # 
     matrix_1 = confusion_matrix(y_test, y_pred)
     sb.heatmap(matrix_1, annot=True, fmt='d').set_title('Maternal risks confusion matrix (0 = Stayed, 1 = Left)')
 
@@ -111,8 +111,11 @@ def random_forest_regressor(x,y):
     print('Mean Squared Error:', mean_squared_error(y_test, y_pred))
     print('Root Mean Squared Error:', np.sqrt(mean_squared_error(y_test, y_pred)))
 
+
 def main():
-    print("done")
+    random_forest_classifier(x,y)
+    random_forest_regressor(x,y)
+    print("File Executed")
 
 if __name__ == "__main__":
     main()
