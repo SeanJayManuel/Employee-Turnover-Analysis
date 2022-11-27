@@ -7,7 +7,9 @@
 
 - [A Dive Into Data Visualization](#a-dive-into-data-visualization)
 
-- [Prepping Our Random Forest Model](#prepping-our-random-forest-model)
+- [Random Forest Model](#random-forest-model)
+
+    - [Prepping Our Random Forest Model](#prepping-our-random-forest-model)
 
 
 ## About
@@ -51,8 +53,8 @@ Figure. 3
 
 We can see an acceptional spike around the 150 hour mark per month. This gives us a better insight into the typical employee workload that our dataset would experience.
 
-
-## Prepping Our Random Forest Model
+## Random Forest Model
+### Prepping Our Random Forest Model
 
 Before we can create our random forest classifier we need to understand more about the data so we know the appropriate properties to assign. One of the ideal properties to decide on in a random forest algorithm is the number of trees needed to accurately classify the individual points.
 
