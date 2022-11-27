@@ -1,5 +1,15 @@
 # Employee Turnover Analysis
 
+## Table of Contents
+- [About](#about)
+
+- [Attributes](#attributes)
+
+- [A Dive Into Data Visualization](#a-dive-into-data-visualization)
+
+- [Prepping Our Random Forest Model](#prepping-our-random-forest-model)
+
+
 ## About
 This project will analyze employee data and metrics in order to predict the companies employee retention. To further examine the trends we find, this analysis will conclude with the results we find after building a **random forest regression** model.
 
