@@ -13,7 +13,9 @@
 
 
 ## About
-This project will analyze employee data and metrics in order to predict the companies employee retention. To further examine the trends we find, this analysis will conclude with the results we find after building a **random forest regression** model.
+This project will analyze employee data and metrics in order to predict the companies employee retention. We will look into which trends are most prominent in employees who left the company. To further examine the trends we find, this analysis will conclude with the results we find after building a **random forest regression** model as well as a **K Nearest Neighbor regression** model.
+
+We will see which model is better suited for our dataset and our desired use cases.
 
 We will use this README.md as a report in which we discuss some of the findings we discover by analyzing the data as well how we reached these findings.
 
