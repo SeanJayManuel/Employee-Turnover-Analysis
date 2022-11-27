@@ -46,6 +46,20 @@ randomfc = RandomForestClassifier(n_estimators=3,
 randomfc.fit(x_train, y_train)
 y_pred = randomfc.predict(x_test)
 
+attributes = x.columns.values
+classes = ['0', '1']
+
+for estimator in randomfc.estimators_:
+    print(estimator)
+    plot.figure(figsize=(12,6))
+    tree.plot_tree(estimator,
+                   feature_names=attributes,
+                   class_names=classes,
+                   fontsize=8, 
+                   filled=True, 
+                   rounded=True)
+    plot.show()
+
 
 # Random Forest Regresor
 SEED2 = 45
