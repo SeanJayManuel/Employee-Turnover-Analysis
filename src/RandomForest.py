@@ -26,7 +26,7 @@ print(data['Left'].unique())
 
 # Replace all string values with ints as to pass through training set and regressor
 data['Salary'] = data['Salary'].replace('low', 0).replace('medium', 1).replace('high', 2)
-data['Departments'] = data['Departments'].replace('sales', 0).replace('accounting', 1).replace('hr',2).replace('technical',3).replace('support',4).replace('management',5).replace('IT',6).replace('product_mng',7).replace('marketing',8).replace('RandD', 9)
+data['Department'] = data['Department'].replace('sales', 0).replace('accounting', 1).replace('hr',2).replace('technical',3).replace('support',4).replace('management',5).replace('IT',6).replace('product_mng',7).replace('marketing',8).replace('RandD', 9)
 
 # Sets y to our desired value and drops siad value for x
 y = data['Left']
@@ -34,13 +34,17 @@ x = data.drop(['Left'], axis=1)
 
 # Random Forest Classifier
 SEED1 = 45
-X_train, X_test, y_train, y_test = train_test_split(x, y, 
+x_train, x_test, y_train, y_test = train_test_split(x, y, 
                                                     test_size=0.2, 
                                                     random_state=SEED1)
 
 randomfc = RandomForestClassifier(n_estimators=3, 
                              max_depth=2,
                              random_state=SEED1)
+
+
+randomfc.fit(x_train, y_train)
+y_pred = randomfc.predict(x_test)
 
 
 # Random Forest Regresor
@@ -59,7 +63,6 @@ x_train, x_test, y_train, y_test = train_test_split(x, y,
 randomfr = RandomForestRegressor(n_estimators=35, # 35 trees
                              max_depth=4, #  4 levels
                              random_state=SEED2)
-
 
 
 randomfr.fit(x_train, y_train)
