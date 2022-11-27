@@ -60,6 +60,12 @@ for estimator in randomfc.estimators_:
                    rounded=True)
     plot.show()
 
+# M
+cm = confusion_matrix(y_test, y_pred)
+sb.heatmap(cm, annot=True, fmt='d').set_title('Maternal risks confusion matrix (0 = Stayed, 1 = Left)')
+
+print(classification_report(y_test,y_pred))
+
 
 # Random Forest Regresor
 SEED2 = 45
