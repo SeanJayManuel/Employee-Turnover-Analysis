@@ -7,7 +7,6 @@ Welcome to the random forest classifier and regressor.
 
 """
 import pandas as pd
-from pandas import DataFrame
 import numpy as np
 import seaborn as sb
 import matplotlib.pyplot as plot
