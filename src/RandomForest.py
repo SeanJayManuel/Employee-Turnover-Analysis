@@ -30,7 +30,7 @@ data['Department'] = data['Department'].replace('sales', 0).replace('accounting'
 # prints our changes to our data to ensure they were in place
 print(data)
 
-# Sets y to our desired value and drops said value for x
+# Sets y to our desired attribute and drops said value for x
 y = data['Left']
 x = data.drop(['Left'], axis = 1)
 
@@ -40,8 +40,11 @@ SEED2 = 45
 
 # Random Forest Classifier function
 def random_forest_classifier(x, y):
+    """ Takes x and y values that we determined above and passes them through our classifier.
+    Then plots our classifier trees which are evelauted by printing confusion matrix"""
 
-    # splits data into training and testing
+
+    # Splits data into training and testing
     x_train, x_test, y_train, y_test = train_test_split(x, y, 
                                                         test_size = 0.25, # 25% of the dataset is used for testing, 75% for training
                                                         random_state = SEED1)
@@ -79,8 +82,9 @@ def random_forest_classifier(x, y):
     print(classification_report(y_test, y_pred))
 
 
-# Random Forest Regresor
 def random_forest_regressor(x, y):
+    """ Takes the x and y value and passes through our regression model, then ploting our regression trees. 
+    Prints our potential error values"""
 
     # Splits our data into training and testing sets
     x_train, x_test, y_train, y_test = train_test_split(x, y, 
