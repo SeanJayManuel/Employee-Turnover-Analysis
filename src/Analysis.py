@@ -33,13 +33,14 @@ data.info()
 ex_employees = data.groupby('Left')
 ex_employees.mean()
 
+def figure_1():
 # This chart shows us who left the company
-Left=data.groupby('Left').count()
-plot.title("Employees Who Left vs. Total # of Employees ")
-plot.bar(Left.index.values, Left['Satisfaction'])
-plot.xlabel('# of Employees Who Left Their Company')
-plot.ylabel('Total # Number of Employees')
-plot.show()
+    Left = data.groupby('Left').count()
+    plot.title("Employees Who Left vs. Total # of Employees ")
+    plot.bar(Left.index.values, Left['Satisfaction'])
+    plot.xlabel('# of Employees Who Left Their Company')
+    plot.ylabel('Total # Number of Employees')
+    plot.show()
 
 print(data.Left.value_counts())
 
@@ -75,7 +76,7 @@ plot.show()
 
 
 # Using Seaborn creates a sub plot
-attributes=['Project_Count','Tenure','Work_Accident','Left', 'Promotion','Departments','Salary']
+attributes=['Project_Count','Tenure','Work_Accident','Left', 'Promotion','Department','Salary']
 
 fig=plot.subplots(figsize=(10,15))
 plot.title('Comparing Attributes of Past and Current Employees')
@@ -94,3 +95,9 @@ graph.fig.suptitle("Scatterplot and Histogram of pairs of variables color coded 
 plot.show()
 
 
+def main():
+    figure_1()
+    print("File Executed")
+
+if __name__ == "__main__":
+    main()
