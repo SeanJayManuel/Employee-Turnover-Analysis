@@ -30,24 +30,26 @@ data['Department'] = data['Department'].replace('sales', 0).replace('accounting'
 # prints our changes to our data to ensure they were in place
 print(data)
 
-# Sets y to our desired value and drops siad value for x
+# Sets y to our desired value and drops said value for x
 y = data['Left']
-x = data.drop(['Left'], axis=1)
+x = data.drop(['Left'], axis = 1)
 
-
+# Set our random seed value to a constant value
 SEED1 = 45
 SEED2 = 45
 
-# Random Forest Classifier
-def random_forest_classifier(x,y):
+# Random Forest Classifier function
+def random_forest_classifier(x, y):
 
+    # splits data into training and testing
     x_train, x_test, y_train, y_test = train_test_split(x, y, 
-                                                        test_size=0.2, 
-                                                        random_state=SEED1)
+                                                        test_size = 0.25, # 25% of the dataset is used for testing, 75% for training
+                                                        random_state = SEED1)
 
-    randomfc = RandomForestClassifier(n_estimators=3, 
-                                max_depth=2,
-                                random_state=SEED1)
+    # Creates random forest classifier 
+    randomfc = RandomForestClassifier(n_estimators = 30, # 30 
+                                max_depth = 4,
+                                random_state = SEED1)
 
 
     randomfc.fit(x_train, y_train)
@@ -56,37 +58,37 @@ def random_forest_classifier(x,y):
     attributes = x.columns.values
     classes = ['0', '1']
 
+
     for estimator in randomfc.estimators_:
         print(estimator)
-        plot.figure(figsize=(12,6))
+        plot.figure(figsize = (12,6))
         tree.plot_tree(estimator,
-                    feature_names=attributes,
-                    class_names=classes,
-                    fontsize=8, 
-                    filled=True, 
-                    rounded=True)
+                    feature_names = attributes,
+                    class_names = classes,
+                    fontsize = 8, 
+                    filled = True, 
+                    rounded = True)
         plot.show()
 
     # 
     matrix_1 = confusion_matrix(y_test, y_pred)
-    sb.heatmap(matrix_1, annot=True, fmt='d').set_title('Maternal risks confusion matrix (0 = Stayed, 1 = Left)')
+    sb.heatmap(matrix_1, annot = True, fmt = 'd').set_title('Maternal risks confusion matrix (0 = Stayed, 1 = Left)')
 
-    print(classification_report(y_test,y_pred))
-
+    print(classification_report(y_test, y_pred))
 
 
 # Random Forest Regresor
-def random_forest_regressor(x,y):
+def random_forest_regressor(x, y):
 
     # Splits our data into training and testing sets
     x_train, x_test, y_train, y_test = train_test_split(x, y, 
-                                                        test_size=0.25, 
-                                                        random_state=SEED2)
+                                                        test_size = 0.25, 
+                                                        random_state = SEED2)
 
 
-    randomfr = RandomForestRegressor(n_estimators=35, # 35 trees
-                                max_depth=4, #  4 levels
-                                random_state=SEED2)
+    randomfr = RandomForestRegressor(n_estimators = 35, # 35 trees
+                                max_depth = 4, #  4 levels
+                                random_state = SEED2)
 
 
     randomfr.fit(x_train, y_train)
@@ -97,12 +99,12 @@ def random_forest_regressor(x,y):
     tree1 = randomfr.estimators_[0]
 
 
-    plot.figure(figsize=(20,6))
+    plot.figure(figsize=(20, 6))
     tree.plot_tree(tree1,
-                feature_names=attributes,
-                fontsize=8, 
-                filled=True, 
-                rounded=True);
+                feature_names = attributes,
+                fontsize = 8, 
+                filled = True, 
+                rounded = True);
     plot.show()
 
 
