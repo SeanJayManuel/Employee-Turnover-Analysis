@@ -1,7 +1,7 @@
 """
 -----------------------------
 
-Welcome to the random forest classifier.
+Welcome to the random forest classifier and regressor.
 
 ------------
 
@@ -46,22 +46,23 @@ def random_forest_classifier(x, y):
                                                         test_size = 0.25, # 25% of the dataset is used for testing, 75% for training
                                                         random_state = SEED1)
 
-    # Creates random forest classifier 
-    randomfc = RandomForestClassifier(n_estimators = 30, # 30 
-                                max_depth = 4,
+    # Random forest classifier sets number of trees, and depth
+    randomfc = RandomForestClassifier(n_estimators = 30, # 30 trees
+                                max_depth = 4, # 4 levels
                                 random_state = SEED1)
 
-
+    # Builds a forest of trees from the training data and predicts based off of test data
     randomfc.fit(x_train, y_train)
     y_pred = randomfc.predict(x_test)
 
+    # 
     attributes = x.columns.values
     classes = ['0', '1']
 
-
+    # Plots and prints each tree from classifier *COMMENT OUT FOR LARGE # OF TREES/FORESTS*
     for estimator in randomfc.estimators_:
         print(estimator)
-        plot.figure(figsize = (12,6))
+        plot.figure(figsize = (20,6))
         tree.plot_tree(estimator,
                     feature_names = attributes,
                     class_names = classes,
@@ -70,10 +71,11 @@ def random_forest_classifier(x, y):
                     rounded = True)
         plot.show()
 
-    # 
+    # Plots matrix depicting accuracy 
     matrix_1 = confusion_matrix(y_test, y_pred)
     sb.heatmap(matrix_1, annot = True, fmt = 'd').set_title('Maternal risks confusion matrix (0 = Stayed, 1 = Left)')
 
+    # Prints classification report with precsion, recall, f1-score, and support
     print(classification_report(y_test, y_pred))
 
 
@@ -82,15 +84,17 @@ def random_forest_regressor(x, y):
 
     # Splits our data into training and testing sets
     x_train, x_test, y_train, y_test = train_test_split(x, y, 
-                                                        test_size = 0.25, 
+                                                        test_size = 0.25, # 25% of the dataset is used for testing, 75% for training
                                                         random_state = SEED2)
 
 
+    # Random forest regressor sets number of trees, and depth
     randomfr = RandomForestRegressor(n_estimators = 35, # 35 trees
                                 max_depth = 4, #  4 levels
                                 random_state = SEED2)
 
 
+    # Builds forest withing training data
     randomfr.fit(x_train, y_train)
 
     y_pred = randomfr.predict(x_test)
@@ -98,13 +102,13 @@ def random_forest_regressor(x, y):
     attributes = x.columns
     tree1 = randomfr.estimators_[0]
 
-
+    # Plots regressor tree and prints
     plot.figure(figsize=(20, 6))
     tree.plot_tree(tree1,
                 feature_names = attributes,
                 fontsize = 8, 
                 filled = True, 
-                rounded = True);
+                rounded = True)
     plot.show()
 
 
