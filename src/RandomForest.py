@@ -38,6 +38,7 @@ x = data.drop(['Left'], axis = 1)
 SEED1 = 45
 SEED2 = 45
 
+
 # Random Forest Classifier function
 def random_forest_classifier(x, y):
     """ Takes x and y values that we determined above and passes them through our classifier.
