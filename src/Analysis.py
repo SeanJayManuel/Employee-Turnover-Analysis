@@ -13,7 +13,6 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 
-
 # Let's import the dataset we will be using!
 data = pd.read_csv('HR_Employee_Measurement.csv')
 
@@ -32,7 +31,8 @@ ex_employees.mean()
 print(data.Left.value_counts())
 
 def left_chart(dataset):
-# This chart shows us who left the company
+    """Takes read csv dataset and compares # of employees who left vs # of 
+    employees who stayed."""
     
     left = dataset.groupby('Left').count()
    
@@ -46,8 +46,8 @@ def left_chart(dataset):
 
 
 def tenure_chart(dataset):
-    # This chart measures the relationship between time spent at the company
-    # and number of employees.
+    """Takes read csv dataset and displays the relationship between time spent at the company
+    and number of employees."""
     
     tenure = dataset.groupby('Tenure').count()
     
@@ -60,7 +60,7 @@ def tenure_chart(dataset):
     return plot.show()
 
 def hours_chart(dataset):
-    # This displays the the relationship between hours worked and the number of employees.
+    """Takes read csv dataset and displays the the relationship between hours worked and the number of employees. """
     
     monthly_hours = dataset.groupby('Monthly_Hours').count()
    
@@ -74,13 +74,13 @@ def hours_chart(dataset):
 
 
 def cluster_graph(dataset):
-
-     # Cluster graph 
+    """Takes read csv dataset and plots a scatter plot comparing satisfaction level
+    and last evaluation score"""
+    
     left_emp =  dataset[['Satisfaction', 'Evaluation']][dataset.Left == 1]
     kmeans = KMeans(n_clusters = 3, random_state = 0).fit(left_emp)
     left_emp['label'] = kmeans.labels_
 
-    # Creates a scatter plot of three groups of employees
     plot.title('3 Clusters of Employees Who Left')
     plot.scatter(left_emp['Satisfaction'], left_emp['Evaluation'], c = left_emp['label'], cmap = 'Accent')
 
@@ -90,8 +90,8 @@ def cluster_graph(dataset):
     return plot.show()
 
 def subplot_graphs(dataset):
-    """ Takes read csv dataset and subplot
-    """
+    """Takes read csv dataset and subplots comparing the attributes of past and present employees"""
+
     attributes = ['Project_Count','Tenure','Work_Accident','Left', 'Promotion','Department','Salary']
 
     plot.title('Comparing Attributes of Past and Current Employees')
@@ -114,7 +114,6 @@ def histogram(dataset):
                 fontsize = 12, # defining the size of the title
                 y = 1.05); # y = definig title y position (height)
     plot.show()
-
 
 
 def main():
