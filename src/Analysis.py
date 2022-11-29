@@ -31,75 +31,85 @@ ex_employees.mean()
 
 print(data.Left.value_counts())
 
-def left_chart():
+def left_chart(dataset):
 # This chart shows us who left the company
-    Left = data.groupby('Left').count()
+    
+    left = dataset.groupby('Left').count()
    
     plot.title("Employees Who Left vs. Total # of Employees ")
-    plot.bar(Left.index.values, Left['Satisfaction'])
-    
+    plot.bar(left.index.values, left['Satisfaction'])
+
     plot.xlabel('# of Employees Who Left Their Company')
     plot.ylabel('Total # Number of Employees')
 
     return plot.show()
 
 
-def tenure_chart():
+def tenure_chart(dataset):
     # This chart measures the relationship between time spent at the company
     # and number of employees.
-    Tenure = data.groupby('Tenure').count()
+    
+    tenure = dataset.groupby('Tenure').count()
+    
     plot.title("Years Spent in Company vs. # of Employees")
-    plot.bar(Tenure.index.values, Tenure['Satisfaction'])
+    plot.bar(tenure.index.values, tenure['Satisfaction'])
+
     plot.xlabel('Number of Years Spent in Company')
     plot.ylabel('Number of Employees')
    
     return plot.show()
 
-def hours_chart():
+def hours_chart(dataset):
     # This displays the the relationship between hours worked and the number of employees.
-    Monthly_Hours = data.groupby('Monthly_Hours').count()
+    
+    monthly_hours = dataset.groupby('Monthly_Hours').count()
+   
     plot.title("Hours Worked per Month vs. # of Employees ")
-    plot.bar(Monthly_Hours.index.values, Monthly_Hours['Satisfaction'])
+    plot.bar(monthly_hours.index.values, monthly_hours['Satisfaction'])
+
     plot.xlabel('Average Monthly Hours Worked')
     plot.ylabel('Number of Employees')
     
     return plot.show()
 
 
-def cluster_graph():
+def cluster_graph(dataset):
 
      # Cluster graph 
-    left_emp =  data[['Satisfaction', 'Evaluation']][data.Left == 1]
+    left_emp =  dataset[['Satisfaction', 'Evaluation']][dataset.Left == 1]
     kmeans = KMeans(n_clusters = 3, random_state = 0).fit(left_emp)
     left_emp['label'] = kmeans.labels_
 
     # Creates a scatter plot of three groups of employees
+    plot.title('3 Clusters of Employees Who Left')
     plot.scatter(left_emp['Satisfaction'], left_emp['Evaluation'], c = left_emp['label'], cmap = 'Accent')
+
     plot.xlabel('Satisfaction Level')
     plot.ylabel('Last Evaluation')
-    plot.title('3 Clusters of Employees Who Left')
     
     return plot.show()
 
-def subplot_graphs():
-    # Using Seaborn creates a sub plot
+def subplot_graphs(dataset):
+    """ Takes read csv dataset and subplot
+    """
     attributes = ['Project_Count','Tenure','Work_Accident','Left', 'Promotion','Department','Salary']
 
-    fig = plot.subplots(figsize=(10,15))
     plot.title('Comparing Attributes of Past and Current Employees')
     
     for i, j in enumerate(attributes):
         plot.subplot(4, 2, i+1)
         plot.subplots_adjust(hspace = 1.0)
-        sb.countplot(x=j,data = data, hue='Left')
+        sb.countplot(x=j, data = dataset, hue='Left')
         plot.xticks(rotation=90)
         plot.title("# Of Employees")
     
     return plot.show()
 
-def histogram():
-    # This creates are histogram to cross examine the categories against eachother
-    graph = sb.pairplot(data, hue = 'Left')
+def histogram(dataset):
+    """Takes read csv dataset and
+    creates scatterplot and histogram cross examining each attribute to eachother"""
+
+    graph = sb.pairplot(dataset, hue = 'Left')
     graph.fig.suptitle("Scatterplot and Histogram of pairs of variables color coded by who left the company", 
                 fontsize = 12, # defining the size of the title
                 y = 1.05); # y = definig title y position (height)
@@ -108,8 +118,8 @@ def histogram():
 
 
 def main():
-    left_chart()
-    subplot_graphs()
+    left_chart(data)
+    subplot_graphs(data)
     print("File Executed")
 
 if __name__ == "__main__":
