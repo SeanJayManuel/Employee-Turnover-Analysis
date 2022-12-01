@@ -10,6 +10,12 @@
 - [Random Forest Model](#random-forest-model)
 
     - [Prepping Our Random Forest Model](#prepping-our-random-forest-model)
+    
+    - [Random Forest Classifier](#random-forest-classifier)
+
+    - [Random Forest Regressor](#random-forest-regressor)
+
+
 
 
 ## About
@@ -71,8 +77,8 @@ Figure. 3
 
 We can see an acceptional spike around the 150 hour mark per month. This gives us a better insight into the typical employee workload that our dataset would experience.
 
-## Random Forest Model
-### Prepping Our Random Forest Model
+## Random Forest Algorithm
+### Prepping Our Random Forest Algorithm
 
 Before we can create our random forest classifier we need to understand more about the data so we know the appropriate properties to assign. One of the ideal properties to decide on in a random forest algorithm is the number of trees needed to accurately classify the individual points.
 
@@ -83,3 +89,7 @@ Figure. 5
 Figure. 5
 
 When looking at our plotted graphs, the preferable situation would be a clear seperation between the the curves and data points of our two classes. Looking above we can see that our two different classes are overlapping quite a bit. Since trees internally create lines when establishing the space between points, we can draw to a conclusion that more trees are needed in our forest to better classify our data points. 
+
+### Random Forest Classifier
+
+### Random Forest Regressor
