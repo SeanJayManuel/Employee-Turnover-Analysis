@@ -39,6 +39,22 @@ To begin our analysis, we need to understand the datasets attributes and what th
 
 Our data serves little use in it's current form, so let's try a creating a few different graphs to help grasp the different relationships in our dataset.
 
+To begin, lets first look into how many employees left the company in comparison to how many stayed. See Figure. 1
+
+![](Graphs/Figure_1.png)<br>
+Figure. 1
+
+By running the following code: 
+
+    print(data.Left.value_counts())
+<br>
+We get the output;
+
+    0    11428
+    1     3571
+
+Thus, we can see that out of nearly 15,000 employees, over 3,500 left their job.
+
 Secondly, we can create a graph for the relationship between employee tenure and how many employee's there are. See *Figure. 2* below.
 
 ![](Graphs/Figure_2.png)<br>
