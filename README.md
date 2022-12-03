@@ -77,7 +77,18 @@ Figure. 3
 
 We can see an acceptional spike around the 150 hour mark per month. This gives us a better insight into the typical employee workload that our dataset would experience.
 
-Finally, we are begining to understand that there seems to be patterns 
+Finally, we are begining to understand that there seems to be patterns in terms of the type of employees who left. A heavy attribute that we should examine is Satisfaction. We can cross examine this with our Last Evaluation attritbute using a cluster graph. See Figure. 4
+
+![](Graphs/Figure_4.png)<br>
+Figure. 4
+
+There seems to be 3 main clusters of employees who left.
+
+1. High Satisfaction and High Evaluation.
+2. Low Satisfaction and High Evaluation.
+3. Average Satisfaction and Average Evaluation.
+
+
 
 ## Random Forest Algorithm
 ### Prepping Our Random Forest Algorithm
