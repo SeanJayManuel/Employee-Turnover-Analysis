@@ -77,6 +77,8 @@ Figure. 3
 
 We can see an acceptional spike around the 150 hour mark per month. This gives us a better insight into the typical employee workload that our dataset would experience.
 
+Finally, we are begining to understand that there seems to be patterns 
+
 ## Random Forest Algorithm
 ### Prepping Our Random Forest Algorithm
 
