@@ -102,7 +102,3 @@ Figure. 5
 Figure. 5
 
 When looking at our plotted graphs, the preferable situation would be a clear seperation between the the curves and data points of our two classes. Looking above we can see that our two different classes are overlapping quite a bit. Since trees internally create lines when establishing the space between points, we can draw to a conclusion that more trees are needed in our forest to better classify our data points. 
-
-### Random Forest Classifier
-
-### Random Forest Regressor
